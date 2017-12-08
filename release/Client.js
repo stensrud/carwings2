@@ -93,13 +93,7 @@ class Client {
         });
     }
     static extractCustomSessionIdFromLoginResponse(response) {
-        const vehicleInfoList = response.VehicleInfoList;
-        if (!vehicleInfoList) {
-            console.warn('Response did not include a vehicle information list.');
-            return;
-        }
-        ;
-        const vehicleInfo = vehicleInfoList.vehicleInfo;
+        const vehicleInfo = response.vehicleInfo;
         if (!vehicleInfo) {
             console.warn('Response did not include vehicle information.');
             return;
@@ -147,10 +141,13 @@ class Client {
             console.warn('Response did not include a profile.');
             return;
         }
+        const gdcUserId = '';
+        /*
         const gdcUserId = profile.gdcUserId;
         if (!gdcUserId) {
             console.warn('Response did not include a GDC user ID.');
         }
+        */
         const dcmId = profile.dcmId;
         if (!dcmId) {
             console.warn('Response did not include a DCM ID.');
